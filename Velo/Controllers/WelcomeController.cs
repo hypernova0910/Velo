@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Velo.Controllers
 {
-    public class VeloController : Controller
+    public class WelcomeController : Controller
     {
         // GET: Velo
         public ActionResult Index()

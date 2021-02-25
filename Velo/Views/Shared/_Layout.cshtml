@@ -3,35 +3,65 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
+    <script src="~/assets/js/event.js"></script>
+    <link href="~/assets/css/base.css" rel="stylesheet" />
+    <link href="~/assets/css/welcome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+        </div>*@
+    <div class="welcome__header">
+        <div class="welcome__header__navbar">
+            <nav class="navbar bg-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">
+                            <img src="#" alt="logo" style="background-color: #fff" />
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" class="text-white"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                        <li><a href="#" class="text-white"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid body-content">
         @RenderBody()
         <hr />
+        <div class="welcome-footer-fixed-bottom">
+            <div class="welcome-footer-policy">
+                <p class="welcome-footer__p">Chúng tôi tôn trọng quyền riêng tư của bạn. Chúng tôi và các đối tác của mình sử dụng trình theo dõi để đo lượng người truy cập trang web của mình và để cung cấp cho bạn những ưu đãi và cải thiện hoạt động tiếp thị của riêng Velo. <a href="#">Thông tin khác về cookie và nhà cung cấp mà chúng tôi sử dụng. </a>Bạn có thể rút lại việc đồng ý trước đó của mình bất kỳ lúc nào trong mục cài đặt.</p>
+                <div class="welcome-footer__btn">
+                    <div class="welcome-footer__btn-child">Tôi không đồng ý</div>
+                    <div class="welcome-footer__btn-child bg-primary" onclick="agreePolicy()">Tôi đòng ý</div>
+                </div>
+            </div>
+        </div>
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Velo Application</p>
         </footer>
     </div>
 
