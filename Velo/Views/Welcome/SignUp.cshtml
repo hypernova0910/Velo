@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Sign Up";
+}
+
+<link href="~/assets/css/welcome.css" rel="stylesheet" />
+
+<div class="welcome__signup-title">
+    <h1>Sign Up</h1>
+</div>
+<div class="welcome__signup-layout">
+    <form action="#">
+        <div class="infor" id="identify">
+            <label for="tendangnhap">Tên đăng nhập:</label> <br />
+            <input type="text" id="tendangnhap" placeholder="Tên đăng nhập" />
+        </div>
+        <div class="infor" id="pass">
+            <label for="matkhau">Mật khẩu:</label> <br />
+            <input type="password" id="matkhau" placeholder="Mật khẩu" />
+        </div>
+        <div class="infor" id="cfpass">
+            <label for="xacnhan">Xác nhận mật khẩu</label><br />
+            <input type="password" id="xacnhan" placeholder="Xác nhận mật khẩu" />
+        </div>
+        <div class="infor" id="name">
+            <label for="hoten">Họ tên</label><br />
+            <input type="text" id="hoten" placeholder="Họ tên" />
+        </div>
+        <div class="infor" id="date">
+            <label for="ngaysinh">Ngày sinh</label><br />
+            <input type="date" id="ngaysinh" placeholder="Ngày sinh" />
+        </div>
+        <div class="infor" id="nationality">
+            <label for="quoctich">Quốc tịch:</label> <br />
+            <input type="text" id="quoctich" list="quocgia" />
+            <datalist id="quocgia">
+                <option value="Việt Nam"></option>
+                <option value="Thái Lan"></option>
+                <option value="Trung Quốc"></option>
+                <option value="Nhật Bản"></option>
+                <option value="Hàn Quốc"></option>
+                <option value="Mỹ"></option>
+                <option value="Canada"></option>
+                <option value="Brazil"></option>
+                <option value="Italia"></option>
+                <option value="Pháp"></option>
+                <option value="Đức"></option>
+                <option value="Nga"></option>
+                <option value="Nam Phi"></option>
+            </datalist>
+        </div>
+        <div class="infor" id="hobby">
+            <label for="sothich">Sở thích:</label><br />
+            <input type="text" id="damme" list="sothich" />
+            <datalist id="sothich">
+                <option value="Ẩm thực"></option>
+                <option value="Làm đẹp"></option>
+                <option value="Thời trang"></option>
+                <option value="Nghiên cứu"></option>
+                <option value="Thể thao"></option>
+                <option value="Du lịch"></option>
+                <option value="Công nghệ"></option>
+                <option value="Động vật"></option>
+            </datalist>
+        </div>
+    </form>
+        @*<option value="value">text</option>*@
+    <div class="infor">
+        <input type="submit" value="Đăng kí" />
+    </div>
+    <div class="login-other-accounts">
+        <button type="button" class="logGG"><span class="fab fa-google-plus-g"> Đăng nhập bằng Google</span></button> <br />
+        <button type="button" class="logFB"><span class="fab fa-facebook"> Đăng nhập bằng Facebook</span></button>
+    </div>
+</div>
