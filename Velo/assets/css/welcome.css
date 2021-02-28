@@ -20,6 +20,15 @@
     z-index: 99999999999999;
 }
 
+.welcome__header__navbar .navbar.bg-transparent a {
+    color: #fff;
+}
+
+.welcome__header__navbar .navbar.bg-transparent a:hover {
+    color: #337ab7;
+}
+
+
 .welcome__feedback-layout {
     display: flex;
     justify-content: space-evenly;
@@ -57,7 +66,7 @@
     bottom: 0;
     left: 0;
     background-color: #fff;
-    z-index: 999999999;
+    z-index: 9999;
     box-shadow: 10px 0 10px;
 }
 

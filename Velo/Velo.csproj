@@ -141,7 +141,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\background.css" />
     <Content Include="assets\css\base.css" />
+    <Content Include="assets\css\form.css" />
     <Content Include="assets\css\welcome.css" />
     <Content Include="assets\img\Image login.jpg" />
     <Content Include="assets\js\event.js" />
