@@ -90,3 +90,65 @@
     padding: 5px 20px;
     cursor: pointer;
 }
+
+.welcome__signup-title {
+    position:fixed;
+    top: 86px;
+    left: 879px;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 9999;
+}
+
+.welcome__isselected {
+    position: fixed;
+    background-color: red;
+    top: 161px;
+    left: 824px;
+    margin: auto;
+    z-index: 9999;
+}
+
+.welcome__signup-layout {
+    position: fixed;
+    top: 240px;
+    left: 824px;
+    margin: auto;
+    z-index: 9999;
+}
+
+input[type=password] {
+    width: 250px;
+}
+
+input[type=date] {
+    width: 250px;
+}
+
+input[type=text] {
+    width: 250px;
+}
+
+input[type=submit] {
+    background-color: mediumorchid;
+    padding: 10px 22px;
+    width: 250px;
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+/*.logGG {
+    margin-top: 8px;
+    background-color: #ff4d4d;
+    padding: 10px 22px;
+    width: 250px;
+    font-size: 16px;
+}
+
+.logFB {
+    margin-top: 8px;
+    background-color: deepskyblue;
+    padding: 10px 22px;
+    width: 250px;
+    font-size: 16px;
+}*/
