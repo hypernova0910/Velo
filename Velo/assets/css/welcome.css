@@ -91,9 +91,18 @@
     z-index: 9999;
 }
 
+.welcome__isselected {
+    position: fixed;
+    background-color: red;
+    top: 161px;
+    left: 824px;
+    margin: auto;
+    z-index: 9999;
+}
+
 .welcome__signup-layout {
     position: fixed;
-    top: 161px;
+    top: 240px;
     left: 824px;
     margin: auto;
     z-index: 9999;
@@ -119,7 +128,7 @@ input[type=submit] {
     font-size: 16px;
 }
 
-.logGG {
+/*.logGG {
     margin-top: 8px;
     background-color: #ff4d4d;
     padding: 10px 22px;
@@ -133,11 +142,4 @@ input[type=submit] {
     padding: 10px 22px;
     width: 250px;
     font-size: 16px;
-}
-
-#tendangnhap {
-    box-shadow:unset;
-}
-#matkhau {
-    box-shadow: unset;
-}
+}*/
