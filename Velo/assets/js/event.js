@@ -12,11 +12,21 @@ function closeEventListeners() {
     $('.form-container').click(function (e) {
         if (!e.target.closest('.form')) {
             $('.form-container').remove()
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            $('body').css('padding-right', '0px')
         }
     })
 
     $('.form-close').click(function () {
         $('.form-container').remove()
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        $('body').css('padding-right', '0px')
     })
 }
 
@@ -24,7 +34,7 @@ $('#btn-sign-in').click(function () {
     $('body').append(
         `<div class="bg-dark form-container">
             <form action="" method="POST" class="form" id="form-sign-in">
-                <h3 class="form__heading">Đăng nhập Velo</h3>
+                <h2 class="form__heading">Đăng nhập Velo</h2>
                 <p class="form__desc">Nơi tình yêu kết trái</p>
 
                 <div class="spacer"></div>
@@ -49,6 +59,11 @@ $('#btn-sign-in').click(function () {
             </form>
         </div>`
     )
+    //$('body').css('overflow', 'hidden')
+    const scrollY = window.scrollY
+    $('body').css('position', 'fixed')
+    $('body').css('top', `-${scrollY}px`)
+    $('body').css('padding-right', '15px')
     closeEventListeners()
 })
 
@@ -56,7 +71,7 @@ $('#btn-sign-up').click(function () {
     $('body').append(
         `<div class="bg-dark form-container">
             <form action="" method="POST" class="form" id="form-sign-up">
-                <h3 class="form__heading">Đăng ký Velo</h3>
+                <h2 class="form__heading">Đăng ký Velo</h2>
                 <p class="form__desc">Chào mừng bạn đến với Velo</p>
 
                 <div class="spacer"></div>
@@ -147,5 +162,9 @@ $('#btn-sign-up').click(function () {
             </form>
         </div>`
     )
+    const scrollY = window.scrollY
+    $('body').css('position', 'fixed')
+    $('body').css('top', `-${scrollY}px`)
+    $('body').css('padding-right', '15px')
     closeEventListeners()
 })
