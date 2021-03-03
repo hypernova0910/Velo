@@ -3,3 +3,15 @@
     --black-color: #000;
     --text-color: #333;
 }
+
+.container-level-1 {
+    z-index: 999;
+}
+
+.container-level-2 {
+    z-index: 9999;
+}
+
+.container-level-3 {
+    z-index: 99999;
+}

@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Velo</title>
+    <link href="~/assets/css/home.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container-fluid home-container">
+        <div class="nav-area">
+
+        </div>
+        <div class="scroll-photos-area" data-mdb-perfect-scrollbar='true'>
+            <div class="scroll-photo__child" @*style="background-color: aqua*@>
+                <img class="fullfilled" src="/assets/img/g1.jpg" />
+            </div>
+            <div class="scroll-photo__child" @*style="background-color: red*@">
+                <img class="fullfilled" src="/assets/img/g2.jpg" />
+            </div>
+            <div class="scroll-photo__child" @*style="background-color: blue*@">
+                <img class="fullfilled" src="/assets/img/g3.jpg" />
+            </div>
+            <div class="scroll-photo__child" @*style="background-color: green*@">
+                <img class="fullfilled" src="/assets/img/g4.jpg" />
+            </div>
+        </div>
+        <div class="personal-info-area">
+            <h2>Trang cá nhân</h2>
+        </div>
+    </div>
+</body>
+</html>

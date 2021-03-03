@@ -134,6 +134,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VeloController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -144,8 +145,17 @@
     <Content Include="assets\css\background.css" />
     <Content Include="assets\css\base.css" />
     <Content Include="assets\css\form.css" />
+    <Content Include="assets\css\home.css" />
     <Content Include="assets\css\welcome.css" />
-    <Content Include="assets\html\index.html" />
+    <Content Include="assets\img\b1.jpg" />
+    <Content Include="assets\img\b2.jpg" />
+    <Content Include="assets\img\b3.jpg" />
+    <Content Include="assets\img\b4.jpg" />
+    <Content Include="assets\img\Background sign up and in.png" />
+    <Content Include="assets\img\g1.jpg" />
+    <Content Include="assets\img\g2.jpg" />
+    <Content Include="assets\img\g3.jpg" />
+    <Content Include="assets\img\g4.jpg" />
     <Content Include="assets\img\Image login.jpg" />
     <Content Include="assets\js\event.js" />
     <Content Include="assets\js\formvalidation.js" />
@@ -186,6 +196,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Views\Welcome\SignUp.cshtml" />
+    <Content Include="Views\Velo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
