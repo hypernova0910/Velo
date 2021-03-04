@@ -11,6 +11,7 @@
     <title>Velo</title>
     <link href="~/assets/css/home.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -34,7 +35,102 @@
             </div>
         </div>
         <div class="personal-info-area">
-            <h2>Trang cá nhân</h2>
+            <h1 class="personal-info-header" style="text-align: center;">Thông tin của tôi</h1>
+            <div class="personal-info-general">
+                <img class="personal-avatar" src="/assets/img/anh dai dien.png" alt="avatar" />
+                <span class="name" style="font-size: 24px; font-weight: bold">Monkey D. Luffy</span>
+            </div>
+            <div class="manage-account">
+                <h3>QUẢN LÝ TÀI KHOẢN</h3>
+                <div class="info-frame">
+                    <span class="glyphicon glyphicon-phone-alt"></span>
+                    <label for="phone-number" class="info-label"> Số điện thoại</label>
+                    <span class="info-detail">0123456789</span>
+                </div>
+                <div class="info-frame">
+                    <span class="fas fa-envelope-square"></span>
+                    <label for="email" class="info-label">Email</label>
+                    <span class="info-detail">Luffy.onepiece@gmail.com</span>
+                </div>
+                <div class="info-frame">
+                    <span class="fab fa-font-awesome-flag"></span>
+                    <label for="nationality" class="info-label">Quốc tịch</label>
+                    <span class="info-detail">Nhật Bản</span>
+                </div>
+                <div class="info-frame">
+                    <span class="fas fa-venus-mars"></span>
+                    <label for="gender" class="info-label">Giới tính</label>
+                    <span class="info-detail">Nam</span>
+                </div>
+                <div class="info-frame">
+                    <span class="fas fa-child"></span>
+                    <label for="hobby" class="info-label">Sở thích</label>
+                    <span class="info-detail">Du lịch</span>
+                </div>
+                <div class="info-frame">
+                    <span class="far fa-credit-card"></span>
+                    <label for="payment-account" class="info-label">Thẻ thanh toán</label>
+                </div>
+            </div>
+            <div class="activity-status">
+                <h3>TRẠNG THÁI HOẠT ĐỘNG</h3>
+                <div class="info-frame">
+                    <span class="fas fa-toggle-on"></span>
+                    <label for="active-status" class="info-label">Trạng thái hoạt động gần đây</label>
+                </div>
+            </div>
+            <div class="manage-language">
+                <h3>NGÔN NGỮ</h3>
+                <div class="info-frame">
+                    <span class="fas fa-language"></span>
+                    <label for="language" class="info-label">Ngôn ngữ</label>
+                </div>
+            </div>
+            <div class="support-help">
+                <h3>TRỢ GIÚP & HỖ TRỢ</h3>
+                <div class="info-frame">
+                    <span class="fas fa-hands-helping"></span>
+                    <label for="support" class="info-label">Trợ giúp & Hỗ trợ</label>
+                </div>
+            </div>
+            <div class="community">
+                <h3>CỘNG ĐỒNG</h3>
+                <div class="info-frame">
+                    <span class="fas fa-users"></span>
+                    <label for="community-rules" class="info-label"> Quy tắc cộng đồng</label>
+                </div>
+            </div>
+            <div class="legal">
+                <h3>PHÁP LÝ</h3>
+                <div class="info-frame">
+                    <span class="fas fa-user-shield"></span>
+                    <label for="privacy-policy" class="info-label">Chính sách về quyền riêng tư</label>
+                </div>
+                <div class="info-frame">
+                    <span class="fas fa-cookie"></span>
+                    <label for="cookie-policy" class="info-label"> Chính sách về cookie</label>
+                </div>
+                <div class="info-frame">
+                    <span class="fas fa-cog"></span>
+                    <label for="privacy-setting" class="info-label">Cài đặt chính sách</label>
+                </div>
+                <div class="info-frame">
+                    <span class="fas fa-book"></span>
+                    <label for="terms-of-service" class="info-label">Điều khoản dịch vụ</label>
+                </div>
+            </div>
+            <div class="log-out">
+                <div class="log-out-frame">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    <label for="log-out" class="info-label">Đăng xuất</label>
+                </div>
+            </div>
+            <div class="version">
+                <div class="logo">
+                    <img src="#" alt="Logo">
+                </div>
+                <h4 style="text-align:center">Phiên bản 8.88.8</h4>
+            </div>
         </div>
     </div>
 </body>

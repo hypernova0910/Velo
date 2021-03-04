@@ -35,7 +35,84 @@
 
 .personal-info-area {
     flex: 1;
-    background-color: blueviolet;
+    background-color:lightpink;
     overflow-y: scroll;
     scroll-snap-type: y;
+}
+
+.personal-info-general {
+    margin-top: 36px;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.personal-avatar {
+    margin-right: 24px;
+    margin-left: 12px;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background: black;
+}
+
+.manage-account {
+    position: relative;
+}
+
+.info-frame {
+    background-color: plum;
+    height: 40px;
+    width: auto;
+    line-height: 40px;
+    margin-bottom: 1px;
+    padding-left: 4px;
+    position: relative;
+}
+
+.info-frame:hover {
+    background-color: hotpink;
+}
+
+.info-frame:active {
+    background-color: gray;
+}
+
+.info-label {
+    color: #000011;
+    position: absolute;
+    left: 30px;
+}
+
+.info-detail {
+    right: 4px;
+    position: absolute;
+    font-size: 15px;
+}
+
+.log-out {
+    background-color: plum;
+    height: 40px;
+    width: auto;
+    line-height: 40px;
+    margin-bottom: 1px;
+    padding-left: 4px;
+    position: relative;
+}
+
+.log-out:hover {
+    background-color: hotpink;
+}
+
+.log-out:active {
+    background-color: gray;
+}
+
+.logo {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 30px;
+    width: 30px;
 }

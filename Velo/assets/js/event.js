@@ -91,13 +91,13 @@ $('#btn-sign-up').click(function () {
 
             <div class="form-line">
                 <div class="form-group">
-                    <label for="password_confirmation" class="form-label">Xác nhận mật khẩu</label>
-                    <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="form-label">Mật khẩu</label>
-                    <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                    <label for="password_confirmation" class="form-label">Xác nhận mật khẩu</label>
+                    <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
                     <span class="form-message"></span>
                 </div>
             </div>
@@ -131,7 +131,7 @@ $('#btn-sign-up').click(function () {
                         <option value="10">Pháp</option>
                         <option value="11">Đức</option>
                         <option value="12">Nga</option>
-                        <option value="13">Nam Ph</option>
+                        <option value="13">Nam Phi</option>
                     </select>
                     <span class="form-message"></span>
                 </div>
