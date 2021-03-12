@@ -171,3 +171,26 @@ $('#btn-sign-up').click(function () {
     $('body').css('padding-right', '15px')
     closeEventListeners()
 })
+
+$(document).ready(function () {
+
+    var readURL = function (input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(".form-avatar").on('change', function () {
+        readURL(this);
+    });
+
+    $(".upload-button").on('click', function () {
+        $(".form-avatar").click();
+    });
+});
