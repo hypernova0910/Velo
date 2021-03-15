@@ -14,6 +14,26 @@ namespace Velo.Controllers
             return View();
         }
 
+        public ActionResult Recent()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Message()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Notification()
+        {
+            return PartialView();
+        }
+
+        public ActionResult Error()
+        {
+            return PartialView();
+        }
+
         // GET: Velo/Details/5
         public ActionResult Details(int id)
         {
