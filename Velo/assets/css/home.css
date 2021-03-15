@@ -123,19 +123,30 @@ div.navbar-btn > i {
 }
 
 .personal-info-general {
-    margin-top: 36px;
-    margin-bottom: 36px;
+    margin-top: 24px;
+    margin-bottom: 24px;
     position: relative;
 }
 
-.personal-avatar {
-    margin-right: 24px;
-    margin-left: 12px;
-    max-width: 120px;
-    max-height: 120px;
+.personal-info-avatar {
+    margin-right: 12px;
+    margin-left: 8px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 1px solid #000000;
-    background: black;
+    overflow: hidden;
+    margin: 0px auto 15px auto;
+}
+
+.personal-avatar {
+    width: 100%;
+    height: 100%;
+}
+
+.personal-name {
+    font-size: 130%;
+    font-weight: bold;
+    text-align: center;
 }
 
 .manage-account {
@@ -145,7 +156,7 @@ div.navbar-btn > i {
 .info-frame {
     background-color: plum;
     height: 40px;
-    width: auto;
+    width: 100%;
     line-height: 40px;
     margin-bottom: 1px;
     padding-left: 4px;
@@ -163,13 +174,14 @@ div.navbar-btn > i {
 .info-label {
     color: #000011;
     position: absolute;
-    left: 30px;
+    left: 10%;
+    font-size: 100%;
 }
 
 .info-detail {
-    right: 4px;
+    right: 2%;
     position: absolute;
-    font-size: 15px;
+    font-size: 100%;
 }
 
 .log-out {
