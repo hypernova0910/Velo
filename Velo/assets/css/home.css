@@ -107,7 +107,18 @@ div.navbar-btn > i {
     height: 100%;
     margin: 30px 0;
     scroll-snap-align: start;
+    position: relative;
     /*background-image: url('../img/g1.jpg');*/
+}
+
+.photo__detail {
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(rgba(244, 151, 197, 0), rgba(244, 151, 197, 1));
 }
 
 .fullfilled {
