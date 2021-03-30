@@ -28,6 +28,10 @@ namespace Velo.Controllers
         {
             return PartialView();
         }
+        public ActionResult Chat()
+        {
+            return View();
+        }
 
         public ActionResult Error()
         {

@@ -144,6 +144,7 @@
   <ItemGroup>
     <Content Include="assets\css\background.css" />
     <Content Include="assets\css\base.css" />
+    <Content Include="assets\css\chat.css" />
     <Content Include="assets\css\form.css" />
     <Content Include="assets\css\home.css" />
     <Content Include="assets\css\welcome.css" />
@@ -202,6 +203,7 @@
     <Content Include="Views\Velo\Message.cshtml" />
     <Content Include="Views\Velo\Notification.cshtml" />
     <Content Include="Views\Velo\Error.cshtml" />
+    <Content Include="Views\Velo\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
