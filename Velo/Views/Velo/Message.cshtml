@@ -18,3 +18,17 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $(document).on('click', '.card', function () {
+            $('.scroll-photos-area').html('')
+            $.ajax({
+                url: "/Velo/Chat",
+            }).done(function (rs) {
+                $('.scroll-photos-area').append(rs)
+            }).fail(function (err) {
+                console.log(err)
+            })
+        })
+    })
+</script>
