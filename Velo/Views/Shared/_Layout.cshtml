@@ -66,25 +66,28 @@
             <p>&copy; @DateTime.Now.Year - Velo Application</p>
         </footer>
     </div>
-    <div class="bg-dark form-container container-level-2 hidden">
-        <form action="" method="POST" class="form" id="form-sign-in">
-            <h2 class="form__heading">Đăng nhập Velo</h2>
-            <p class="form__desc">Nơi tình yêu kết trái</p>
+    @if (string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <div class="bg-dark form-container container-level-2 hidden">
+            <form action="/Welcome/SignIn" method="GET" class="form" id="form-sign-in">
+                <h2 class="form__heading">Đăng nhập Velo</h2>
+                <p class="form__desc">Nơi tình yêu kết trái</p>
 
-            <div class="spacer"></div>
+                <div class="spacer"></div>
 
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-                <span class="form-message"></span>
-            </div>
+                <div class="form-group">
+                    <label for="Email" class="form-label">Email</label>
+                    <input id="email" name="Email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                    <span class="form-message"></span>
+                </div>
 
-            <div class="form-group">
-                <label for="password" class="form-label">Mật khẩu</label>
-                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-                <span class="form-message"></span>
-            </div>
+                <div class="form-group">
+                    <label for="Pass" class="form-label">Mật khẩu</label>
+                    <input id="password" name="Pass" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                    <span class="form-message"></span>
+                </div>
 
+<<<<<<< HEAD
             <button class="form-submit" id="SignIn">Đăng nhập</button>
 
             <div class="form-close">
@@ -98,6 +101,49 @@
             <form action="/Welcome/SignUp" method="POST" class="form" id="form-sign-up">
                 <h2 class="form__heading">Đăng ký Velo</h2>
                 <p class="form__desc">Chào mừng bạn đến với Velo</p>
+=======
+                <button class="form-submit">Đăng nhập</button>
+
+                <div class="form-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </form>
+        </div>
+    }
+    else
+    {
+        <div class="bg-dark form-container container-level-2">
+            <form action="/Welcome/SignIn" method="GET" class="form" id="form-sign-in">
+                <h2 class="form__heading">Đăng nhập Velo</h2>
+                <p class="form__desc">Nơi tình yêu kết trái</p>
+
+                <div class="spacer" style="color:red">@ViewBag.Error</div>
+
+                <div class="form-group">
+                    <label for="Email" class="form-label">Email</label>
+                    <input id="email" name="Email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                    <span class="form-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="Pass" class="form-label">Mật khẩu</label>
+                    <input id="password" name="Pass" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                    <span class="form-message"></span>
+                </div>
+
+                <button class="form-submit">Đăng nhập</button>
+
+                <div class="form-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </form>
+        </div>
+    }
+    <div class="bg-dark form-container container-level-2 hidden">
+        <form action="" method="POST" class="form" id="form-sign-up">
+            <h2 class="form__heading">Đăng ký Velo</h2>
+            <p class="form__desc">Chào mừng bạn đến với Velo</p>
+>>>>>>> 0f74f67667f08a8bf0506de4fc3637e4f1fdb444
 
                 <div id="error" class="spacer" style="color: red"></div>
 
@@ -109,6 +155,10 @@
                         </div>
                         <input class="form-avatar" type="file" accept="image/*" />
                     </div>
+<<<<<<< HEAD
+=======
+                    <input class="form-avatar" type="file" accept="image/*" />
+>>>>>>> 0f74f67667f08a8bf0506de4fc3637e4f1fdb444
                 </div>
 
                 <div class="form-line">
