@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Velo.Models;
 
 namespace Velo.Controllers
 {
     public class VeloController : Controller
     {
         // GET: Velo
-        public ActionResult Index()
+        public ActionResult Index(ACCOUNT acc)
         {
-            return View();
+            return View(acc);
         }
 
         public ActionResult Recent()

@@ -2,7 +2,8 @@
 @{
     Layout = null;
 }
-
+@using Velo.Models
+@model ACCOUNT
 <!DOCTYPE html>
 
 <html>
@@ -21,10 +22,10 @@
         <div class="nav-area">
             <nav class="navbar navbar-static-top">
                 @*<ul class="navbar-nav">
-                <li class="active"><i class="fas fa-clock"></i></li>
-                <li><i class="fas fa-comments"></i></li>
-                <li><i class="fas fa-bell"></i></li>
-            </ul>*@
+                        <li class="active"><i class="fas fa-clock"></i></li>
+                        <li><i class="fas fa-comments"></i></li>
+                        <li><i class="fas fa-bell"></i></li>
+                    </ul>*@
                 <div id="recent" class="col-lg-4 navbar-btn btn-active">
                     <i class="fas fa-clock"></i>
                     @*<div class="nav-area__child"><h2>Recent</h2></div>*@
@@ -50,7 +51,7 @@
                     <img class="personal-avatar" src="/assets/img/b1.jpg" alt="avatar" />
                 </div>
                 <div class="personal-name">
-                    Monkey D. Luffy
+                    @Model.Account_ID
                 </div>
             </div>
             <div class="manage-account">
@@ -63,22 +64,35 @@
                 <div class="info-frame">
                     <span class="fas fa-envelope-square" style="font-size: 100%"></span>
                     <label for="email" class="info-label">Email</label>
-                    <span class="info-detail">Luffy.onepiece@gmail.com</span>
+                    <span class="info-detail">@Model.Email</span>
+                </div>
+                <div class="info-frame">
+                    <span class="fab fa-font-awesome-flag" style="font-size: 100%"></span>
+                    <label for="nationality" class="info-label">Ngày sinh</label>
+                    @if (Model.DateOfBirth != null)
+                    {
+                        <span class="info-detail">@Model.DateOfBirth.Value.ToString("dd/MM/yyyy")</span>
+                    }
+                    else
+                    {
+                        <span class="info-detail"></span>
+                    }
                 </div>
                 <div class="info-frame">
                     <span class="fab fa-font-awesome-flag" style="font-size: 100%"></span>
                     <label for="nationality" class="info-label">Quốc tịch</label>
-                    <span class="info-detail">Nhật Bản</span>
+                    <span class="info-detail">@Model.Nationality</span>
                 </div>
                 <div class="info-frame">
                     <span class="fas fa-venus-mars" style="font-size: 100%"></span>
                     <label for="gender" class="info-label">Giới tính</label>
+                    @*<span class="info-detail">@Model.Gender</span>*@
                     <span class="info-detail">Nam</span>
                 </div>
                 <div class="info-frame">
                     <span class="fas fa-child" style="font-size: 100%"></span>
                     <label for="hobby" class="info-label">Sở thích</label>
-                    <span class="info-detail">Du lịch</span>
+                    <span class="info-detail">@Model.Hobby</span>
                 </div>
                 <div class="info-frame">
                     <span class="far fa-credit-card" style="font-size: 100%"></span>
