@@ -35,9 +35,11 @@ namespace Velo.Controllers
             return PartialView();
         }
 
-        public ActionResult Photos()
+        public ActionResult Photos(string id)
         {
-            return PartialView();
+            var db = new MyDB();
+            var accs = db.ACCOUNTs.Where(r=> r.ID_User != id).ToList<ACCOUNT>();
+            return PartialView(accs);
         }
 
         public ActionResult Error()

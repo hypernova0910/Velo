@@ -38,6 +38,16 @@ $('#notification').on('click', function (e) {
     })
 })
 
+$(function () {
+    $.ajax({
+        url: "/Velo/Photos/" + $('#id-user').val(),
+    }).done(function (rs) {
+        $('.scroll-photos-area').append(rs)
+    }).fail(function (err) {
+        console.log(err)
+    })
+})
+
 //$('.chat-input input').keyup(function (e) {
 //    if ($(this).val() == '')
 //        $(this).removeAttr('good');

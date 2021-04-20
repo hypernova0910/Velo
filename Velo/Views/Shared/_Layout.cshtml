@@ -124,7 +124,7 @@
             </form>
         </div>
     }
-    @if (string.IsNullOrEmpty(ViewBag.Error))
+    @if (string.IsNullOrEmpty(ViewBag.Error2))
     {
         <div class="bg-dark form-container container-level-2 hidden">
             <form action="/Welcome/SignUp" method="POST" class="form" id="form-sign-up">
@@ -246,7 +246,7 @@
                 <h2 class="form__heading">Đăng ký Velo</h2>
                 <p class="form__desc">Chào mừng bạn đến với Velo</p>
 
-                <div id="error" class="spacer" style="color: red">@ViewBag.Error</div>
+                <div id="error" class="spacer" style="color: red">@ViewBag.Error2</div>
 
                 <div class="form-line">
                     <div class="avatar-wrapper">

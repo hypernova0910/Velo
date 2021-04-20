@@ -14,6 +14,7 @@ namespace Velo.Controllers
         public ActionResult Index()
         {
             ViewBag.Error = "";
+            ViewBag.Error2 = "";
             return View();
         }
         public ActionResult SignUp(FormCollection data)
@@ -31,12 +32,12 @@ namespace Velo.Controllers
             if (String.IsNullOrEmpty(uid) || String.IsNullOrEmpty(pass) || String.IsNullOrEmpty(name) || String.IsNullOrEmpty(email) || String.IsNullOrEmpty(birthday) ||
                 String.IsNullOrEmpty(gender) || String.IsNullOrEmpty(nationality) || String.IsNullOrEmpty(hobby))
             {
-                ViewBag.Error = "Thông tin chưa đầy đủ";
+                ViewBag.Error2 = "Thông tin chưa đầy đủ";
                 return View("Index");
             }
             else if (pass != pass2)
             {
-                ViewBag.Error = "Mật khẩu không khớp";
+                ViewBag.Error2 = "Mật khẩu không khớp";
                 return View("Index");
             }
             else

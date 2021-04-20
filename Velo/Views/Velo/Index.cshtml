@@ -18,6 +18,7 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
+    <input id="id-user" type="hidden" value="@Model.ID_User" />
     <div class="home-container">
         <div class="nav-area">
             <nav class="navbar navbar-static-top">
@@ -42,7 +43,7 @@
             @Html.Partial("~/Views/Velo/Recent.cshtml")
         </div>
         <div class="scroll-photos-area" data-mdb-perfect-scrollbar='true'>
-            @Html.Partial("~/Views/Velo/Photos.cshtml")
+            
         </div>
         <div class="personal-info-area">
             <h1 class="personal-info-header" style="text-align: center;">Thông tin của tôi</h1>
