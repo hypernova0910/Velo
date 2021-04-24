@@ -127,7 +127,7 @@
     @if (string.IsNullOrEmpty(ViewBag.Error2))
     {
         <div class="bg-dark form-container container-level-2 hidden">
-            <form action="/Welcome/SignUp" method="POST" class="form" id="form-sign-up">
+            <form action="/Welcome/SignUp" method="POST" class="form" id="form-sign-up" enctype="multipart/form-data">
                 <h2 class="form__heading">Đăng ký Velo</h2>
                 <p class="form__desc">Chào mừng bạn đến với Velo</p>
 
@@ -139,7 +139,7 @@
                         <div class="upload-button">
                             <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                         </div>
-                        <input class="form-avatar" type="file" accept="image/*" />
+                        <input class="form-avatar" type="file" name="ImageUpload" />
                     </div>
                 </div>
 
@@ -242,7 +242,7 @@
     else
     {
         <div class="bg-dark form-container container-level-2">
-            <form action="/Welcome/SignUp" method="POST" class="form" id="form-sign-up">
+            <form action="/Welcome/SignUp" method="POST" class="form" id="form-sign-up" enctype="multipart/form-data">
                 <h2 class="form__heading">Đăng ký Velo</h2>
                 <p class="form__desc">Chào mừng bạn đến với Velo</p>
 
