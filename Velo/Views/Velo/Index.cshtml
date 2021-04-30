@@ -23,10 +23,10 @@
         <div class="nav-area">
             <nav class="navbar navbar-static-top">
                 @*<ul class="navbar-nav">
-                <li class="active"><i class="fas fa-clock"></i></li>
-                <li><i class="fas fa-comments"></i></li>
-                <li><i class="fas fa-bell"></i></li>
-            </ul>*@
+                        <li class="active"><i class="fas fa-clock"></i></li>
+                        <li><i class="fas fa-comments"></i></li>
+                        <li><i class="fas fa-bell"></i></li>
+                    </ul>*@
                 <div id="recent" class="col-lg-4 navbar-btn btn-active">
                     <i class="fas fa-clock"></i>
                     @*<div class="nav-area__child"><h2>Recent</h2></div>*@
@@ -43,7 +43,7 @@
             @Html.Partial("~/Views/Velo/Recent.cshtml")
         </div>
         <div class="scroll-photos-area" data-mdb-perfect-scrollbar='true'>
-            
+
         </div>
         <div class="personal-info-area">
             <h1 class="personal-info-header" style="text-align: center;">Thông tin của tôi</h1>
@@ -58,10 +58,10 @@
             <div class="manage-account">
                 <h3 style="font-size: 150%">QUẢN LÝ TÀI KHOẢN</h3>
                 @*<div class="info-frame">
-                    <span class="glyphicon glyphicon-phone-alt" style="font-size: 100%"></span>
-                    <label for="phone-number" class="info-label"> Số điện thoại</label>
-                    <span class="info-detail">0123456789</span>
-                </div>*@
+                        <span class="glyphicon glyphicon-phone-alt" style="font-size: 100%"></span>
+                        <label for="phone-number" class="info-label"> Số điện thoại</label>
+                        <span class="info-detail">0123456789</span>
+                    </div>*@
                 <div class="info-frame">
                     <span class="fas fa-envelope-square" style="font-size: 100%"></span>
                     <label for="email" class="info-label">Email</label>
@@ -162,6 +162,8 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
     <script src="~/assets/js/eventHomePage.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<div class="field">
+﻿<div class="field" id="message-list">
     <div class="card">
         <div class="card__icon">
             <img class="card__image" src="/assets/img/b1.jpg" />
@@ -19,16 +19,18 @@
     </div>
 </div>
 <script>
-    $(function () {
-        $(document).on('click', '.card', function () {
-            $('.scroll-photos-area').html('')
-            $.ajax({
-                url: "/Velo/Chat",
-            }).done(function (rs) {
-                $('.scroll-photos-area').append(rs)
-            }).fail(function (err) {
-                console.log(err)
-            })
+    $(document).on('click', '#message-list .card', function () {
+        $('.scroll-photos-area').html('')
+        $.ajax({
+            url: "/Velo/Chat",
+        }).done(function (rs) {
+            $('.scroll-photos-area').append(rs)
+        }).fail(function (err) {
+            console.log(err)
         })
+    })
+
+    $(function () {
+        
     })
 </script>

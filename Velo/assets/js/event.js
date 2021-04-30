@@ -171,7 +171,11 @@ $('#btn-sign-up').click(function () {
 })
 
 $(document).ready(function () {
-
+    console.log(window.location.host);
+    //var ws = new WebSocket("ws://" + window.location.host + "/api/SocketClient");
+    //ws.onopen = function () {
+    //    alert('connected');
+    //}
     var readURL = function (input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
