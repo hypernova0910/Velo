@@ -5,6 +5,7 @@ namespace Velo.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("PHOTO")]
     public partial class PHOTO
@@ -24,5 +25,8 @@ namespace Velo.Models
         public bool? isAvatar { get; set; }
 
         public virtual ACCOUNT ACCOUNT { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageUpload { get; set; }
     }
 }

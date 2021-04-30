@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,7 +18,8 @@ namespace Velo.Controllers
             ViewBag.Error2 = "";
             return View();
         }
-        public ActionResult SignUp(FormCollection data)
+        [HttpPost]
+        public ActionResult SignUp(FormCollection data, PHOTO pic)
         {
             string uid = data["Account_ID"];
             string pass = data["Pass"];
@@ -55,7 +57,21 @@ namespace Velo.Controllers
                     acc.Nationality = nationality;
                     acc.Hobby = hobby;
 
+                    if (pic.ImageUpload != null)
+                    {
+                        pic.Photo_ID = Guid.NewGuid().ToString().Substring(0, 10);
+                        string fileName = Path.GetFileNameWithoutExtension(pic.ImageUpload.FileName);
+                        string extension = Path.GetExtension(pic.ImageUpload.FileName);
+                        fileName = fileName + extension;
+                        pic.Link = "/assets/img/" + fileName;
+                        pic.ImageUpload.SaveAs(Path.Combine(Server.MapPath("/assets/img/"), fileName));
+                        pic.ID_User = acc.ID_User;
+                        pic.isAvatar = true;
+                        pic.Time_added = DateTime.Now;
+                    }
+                    ViewBag.Link = pic.Link;
                     db.ACCOUNTs.Add(acc);
+                    db.Photos.Add(pic);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Velo", acc);
                 }

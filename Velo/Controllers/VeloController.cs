@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +13,15 @@ namespace Velo.Controllers
         // GET: Velo
         public ActionResult Index(ACCOUNT acc)
         {
+            MyDB db = new MyDB();
+            List<PHOTO> pics = db.Photos.Where(r => r.ID_User == acc.ID_User).Take(1).ToList<PHOTO>();
+            if (pics.Count != 0)
+            {
+                PHOTO pic = pics[0];
+                ViewBag.Link = pic.Link;
+            }
+            else
+                ViewBag.Link = "";
             return View(acc);
         }
 
@@ -76,24 +86,58 @@ namespace Velo.Controllers
         }
 
         // GET: Velo/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var con = new MyDB();
+            var acc = con.ACCOUNTs.Where(r => r.ID_User == id).FirstOrDefault();
+            PHOTO pic = con.Photos.Where(a => a.ID_User == id).FirstOrDefault();
+            ViewBag.URL = pic.Link;
+            return PartialView(acc);
         }
 
         // POST: Velo/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(ACCOUNT acc, PHOTO pic)
         {
+            MyDB con = new MyDB();
             try
             {
-                // TODO: Add update logic here
+                if (String.IsNullOrEmpty(acc.Account_ID) || String.IsNullOrEmpty(acc.Pass) || String.IsNullOrEmpty(acc.Name) || String.IsNullOrEmpty(acc.Email) ||
+                    String.IsNullOrEmpty(acc.Gender) || String.IsNullOrEmpty(acc.Nationality) || String.IsNullOrEmpty(acc.Hobby))
+                {
+                    ViewBag.Error3 = "Thông tin chưa đầy đủ";
+                    return PartialView("Edit", acc);
+                }
+                else
+                {
+                    var model = con.ACCOUNTs.Find(acc.ID_User);
+                    model.Email = acc.Email;
+                    model.DateOfBirth = acc.DateOfBirth;
+                    model.Nationality = acc.Nationality;
+                    model.Hobby = acc.Hobby;
+                    model.Gender = acc.Gender;
+                    model.Pass = acc.Pass;
+                }
 
-                return RedirectToAction("Index");
+                if (pic.ImageUpload != null)
+                {
+                    PHOTO picNew = con.Photos.Where(r => r.ID_User == acc.ID_User).FirstOrDefault();
+                    string fileName = Path.GetFileNameWithoutExtension(pic.ImageUpload.FileName);
+                    string extension = Path.GetExtension(pic.ImageUpload.FileName);
+                    fileName = fileName + extension;
+                    picNew.Link = "/assets/img/" + fileName;
+                    picNew.ImageUpload = pic.ImageUpload;
+                    picNew.ImageUpload.SaveAs(Path.Combine(Server.MapPath("/assets/img/"), fileName));
+                    picNew.isAvatar = true;
+                    picNew.Time_added = DateTime.Now;
+                }
+
+                con.SaveChanges();
+                return RedirectToAction("Index", acc);
             }
             catch
             {
-                return View();
+                return View("Index", acc);
             }
         }
 
