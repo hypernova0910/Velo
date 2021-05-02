@@ -140,10 +140,20 @@ namespace Velo.Controllers
                 return View("Index", acc);
             }
         }
-
+        public ActionResult Close(String id)
+        {
+            var con = new MyDB();
+            var acc = con.ACCOUNTs.Where(r => r.ID_User == id).FirstOrDefault();
+            return RedirectToAction("Index", acc);
+        }
+        public ActionResult Community()
+        {
+            return View();
+        }
         // GET: Velo/Delete/5
         public ActionResult Delete(int id)
         {
+
             return View();
         }
 

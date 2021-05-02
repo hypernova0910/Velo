@@ -51,7 +51,6 @@
             <h1 class="personal-info-header" style="text-align: center;">Thông tin của tôi</h1>
             <div class="personal-info-general">
                 <div class="personal-info-avatar">
-                    @*<img class="personal-avatar" src="/assets/img/b1.jpg" alt="avatar" />*@
                     <img class="personal-avatar" src="@ViewBag.Link" alt="avatar" />
                 </div>
                 <div class="personal-name">
@@ -67,7 +66,7 @@
                 </div>
                 <div class="info-frame" title="info-2">
                     <span class="fab fa-font-awesome-flag" style="font-size: 100%"></span>
-                    <label for="nationality" class="info-label">Ngày sinh</label>
+                    <label for="birthday" class="info-label">Ngày sinh</label>
                     @if (Model.DateOfBirth != null)
                     {
                         <span class="info-detail">@Model.DateOfBirth.Value.ToString("dd/MM/yyyy")</span>
@@ -120,10 +119,12 @@
             </div>
             <div class="community">
                 <h3 style="font-size: 150%">CỘNG ĐỒNG</h3>
-                <div class="info-frame">
-                    <span class="fas fa-users" style="font-size: 100%"></span>
-                    <label for="community-rules" class="info-label"> Quy tắc cộng đồng</label>
-                </div>
+                <a href="/Velo/Community">
+                    <div class="info-frame">
+                        <span class="fas fa-users" style="font-size: 100%"></span>
+                        <label for="community-rules" class="info-label"> Quy tắc cộng đồng</label>
+                    </div>
+                </a>
             </div>
             <div class="legal">
                 <h3 style="font-size: 150%">PHÁP LÝ</h3>
@@ -144,12 +145,14 @@
                     <label for="terms-of-service" class="info-label">Điều khoản dịch vụ</label>
                 </div>
             </div>
-            <div class="log-out">
-                <div class="log-out-frame">
-                    <span class="glyphicon glyphicon-log-out" style="font-size: 100%"></span>
-                    <label for="log-out" class="info-label">Đăng xuất</label>
-                </div>
-            </div>
+            <a href="/Welcome/Index">
+                <div class="log-out">
+                    <div class="log-out-frame">
+                        <span class="glyphicon glyphicon-log-out" style="font-size: 100%; color: black"></span>
+                        <label for="log-out" class="info-label">Đăng xuất</label>
+                    </div>
+                </div>   
+            </a>
             <div class="version">
                 <div class="logo">
                     <img src="#" alt="Logo">

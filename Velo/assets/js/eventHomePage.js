@@ -20,7 +20,6 @@ $('#message').on('click', function (e) {
     $.ajax({
         url: "/Velo/Message",
     }).done(function (rs) {
-        
         $('.nav-area').append(rs)
     }).fail(function (e) {
         console.log(err)
@@ -84,6 +83,10 @@ $(function () {
 //    }
 //});
 
+//$('.log-out').on('click', function (e) {
+
+//})
+
 
 
 $(document).ready(function () {
@@ -108,8 +111,6 @@ $(document).ready(function () {
         $(".form-avatar").click();
     });
 });
-
-
 
 //$('.chat-input input').keyup(function (e) {
 //    if ($(this).val() == '')

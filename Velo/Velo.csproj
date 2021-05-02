@@ -207,6 +207,7 @@
     <Content Include="assets\css\background.css" />
     <Content Include="assets\css\base.css" />
     <Content Include="assets\css\chat.css" />
+    <Content Include="assets\css\Community.css" />
     <Content Include="assets\css\edit.css" />
     <Content Include="assets\css\form.css" />
     <Content Include="assets\css\home.css" />
@@ -271,6 +272,7 @@
     <Content Include="Views\Velo\Chat.cshtml" />
     <Content Include="Views\Velo\Photos.cshtml" />
     <Content Include="Views\Velo\Edit.cshtml" />
+    <Content Include="Views\Velo\Community.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
