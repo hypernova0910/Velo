@@ -24,7 +24,7 @@
         $.ajax({
             url: "/Velo/Chat",
         }).done(function (rs) {
-            $('.scroll-photos-area').append(rs)
+            $('.scroll-photos-area').html(rs)
         }).fail(function (err) {
             console.log(err)
         })

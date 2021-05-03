@@ -53,7 +53,7 @@ $(function () {
     $.ajax({
         url: "/Velo/Photos/" + $('#id-user').val(),
     }).done(function (rs) {
-        $('.scroll-photos-area').append(rs)
+        $('.scroll-photos-area').html(rs)
     }).fail(function (err) {
         console.log(err)
     })
