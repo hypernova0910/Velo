@@ -5,11 +5,10 @@
 {
     <form action="/Velo/Edit" method="POST" class="form" id="form-edit" enctype="multipart/form-data">
         <input id="id-user" type="hidden" value="@Model.ID_User" name="ID_User" />
-        <h2 class="form__heading">Chỉnh sửa thông tin cá nhân</h2>
-        @*<p class="form__desc">Chào mừng bạn đến với Velo</p>*@
-
-        @*<div id="error" class="spacer" style="color: red"></div>*@
-
+        <div class="edit-close">
+            <a href="/Velo/Close/@Model.ID_User"><i class="fas fa-chevron-left" style="font-size: 20px; float: left; margin-left: 8px"></i></a>
+            <h3 class="form__heading" style="text-align: center; display: flow-root; font-size: 1.5em;">Chỉnh sửa thông tin cá nhân</h3>
+        </div>
         <div class="avatar-wrapper">
             <img class="profile-pic" src="@ViewBag.URL" />
             <div class="upload-button">
@@ -103,7 +102,10 @@ else
 {
 <form action="/Velo/Edit" method="POST" class="form" id="form-edit" enctype="multipart/form-data">
     <input id="id-user" type="hidden" value="@Model.ID_User" name="ID_User" />
-    <h2 class="form__heading">Chỉnh sửa thông tin cá nhân</h2>
+    <div class="edit-close">
+        <i class="fas fa-chevron-left" style="font-size: 20px; float: left; margin-left: 8px"></i>
+        <h3 class="form__heading" style="text-align: center; display: flow-root; font-size: 1.5em;">Chỉnh sửa thông tin cá nhân</h3>
+    </div>
     @*<p class="form__desc">Chào mừng bạn đến với Velo</p>*@
 
     @*<div id="error" class="spacer" style="color: red"></div>*@
