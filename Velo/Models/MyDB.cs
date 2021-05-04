@@ -14,6 +14,7 @@ namespace Velo.Models
 
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
         public virtual DbSet<CONVERSATION> CONVERSATIONs { get; set; }
+        public virtual DbSet<CONVERSATION_DETAIL> CONVERSATION_DETAIL { get; set; }
         public virtual DbSet<MESSAGE> MESSAGEs { get; set; }
         public virtual DbSet<PHOTO> Photos { get; set; }
         public virtual DbSet<RELATION> RELATIONs { get; set; }
@@ -38,6 +39,11 @@ namespace Velo.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<ACCOUNT>()
+                .HasMany(e => e.CONVERSATION_DETAIL)
+                .WithRequired(e => e.ACCOUNT)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ACCOUNT>()
                 .HasMany(e => e.RELATIONs)
                 .WithOptional(e => e.ACCOUNT)
                 .HasForeignKey(e => e.Account_ID_received);
@@ -46,16 +52,6 @@ namespace Velo.Models
                 .HasMany(e => e.RELATIONs1)
                 .WithOptional(e => e.ACCOUNT1)
                 .HasForeignKey(e => e.Account_ID_sent);
-
-            modelBuilder.Entity<ACCOUNT>()
-                .HasMany(e => e.CONVERSATIONs)
-                .WithOptional(e => e.ACCOUNT)
-                .HasForeignKey(e => e.User_ID1);
-
-            modelBuilder.Entity<ACCOUNT>()
-                .HasMany(e => e.CONVERSATIONs1)
-                .WithOptional(e => e.ACCOUNT1)
-                .HasForeignKey(e => e.User_ID2);
 
             modelBuilder.Entity<ACCOUNT>()
                 .HasMany(e => e.MESSAGEs)
@@ -68,12 +64,17 @@ namespace Velo.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<CONVERSATION>()
-                .Property(e => e.User_ID1)
+                .HasMany(e => e.CONVERSATION_DETAIL)
+                .WithRequired(e => e.CONVERSATION)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CONVERSATION_DETAIL>()
+                .Property(e => e.Conversation_ID)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CONVERSATION>()
-                .Property(e => e.User_ID2)
+            modelBuilder.Entity<CONVERSATION_DETAIL>()
+                .Property(e => e.ID_User)
                 .IsFixedLength()
                 .IsUnicode(false);
 

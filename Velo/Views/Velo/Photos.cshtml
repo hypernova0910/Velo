@@ -32,11 +32,25 @@
 
 @foreach (ACCOUNT acc in Model)
 {
-    <div class="scroll-photo__child">
+    <div class="scroll-photo__child" id="@acc.ID_User">
         <img class="fullfilled" src="@acc.Photos.Where(a=> a.isAvatar == true).FirstOrDefault().Link" />
         <div class="photo__detail bg-transparent">
             <h1>@acc.Account_ID<span class="h4"> @acc.DateOfBirth</span></h1>
             <h3>Sở thích: <span>@acc.Hobby</span></h3>
+            <button class="chat-button">Nhắn tin</button>
         </div>
     </div>
 }
+
+<script>
+    $('.chat-button').click(function (e) {
+        $.ajax({
+            data: { user_id: $('#id-user').val(), receiver_id: $(this).parent().parent().attr('id')},
+            url: "/Velo/Chat",
+        }).done(function (rs) {
+            $('.scroll-photos-area').html(rs)
+        }).fail(function (err) {
+            console.log(err)
+        })
+    })
+</script>

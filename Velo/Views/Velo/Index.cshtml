@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link href="~/assets/css/chat.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
 </head>
 <body>
     <input id="id-user" type="hidden" value="@Model.ID_User" />
@@ -161,10 +165,6 @@
             </div>
         </div>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
-    <script src="~/signalr/hubs"></script>
     <script src="~/assets/js/eventHomePage.js"></script>
 </body>
 </html>

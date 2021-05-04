@@ -1,7 +1,7 @@
 ﻿$('.navbar-btn').on('click', function (e) {
     $('.btn-active').removeClass('btn-active')
     $(e.target).addClass('btn-active')
-    console.log($(e.target))
+    //console.log($(e.target))
 })
 
 $('#recent').on('click', function (e) {
@@ -17,8 +17,9 @@ $('#recent').on('click', function (e) {
 
 $('#message').on('click', function (e) {
     $('.nav-area .field').remove()
+    console.log($('#id-user').val())
     $.ajax({
-        url: "/Velo/Message",
+        url: "/Velo/Message/" + $('#id-user').val(),
     }).done(function (rs) {
         $('.nav-area').append(rs)
     }).fail(function (e) {

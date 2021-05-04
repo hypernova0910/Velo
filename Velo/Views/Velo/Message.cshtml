@@ -1,5 +1,8 @@
-﻿<div class="field" id="message-list">
-    <div class="card">
+﻿@using Velo.Models
+@model IEnumerable<CONVERSATION_DETAIL>
+
+<div class="field" id="message-list">
+    @*<div class="card">
         <div class="card__icon">
             <img class="card__image" src="/assets/img/b1.jpg" />
         </div>
@@ -7,30 +10,52 @@
             <h5 class="card__body__title">Lộc cộc</h5>
             <p>Bạn đã thích abc</p>
         </div>
-    </div>
-    <div class="card">
-        <div class="card__icon">
-            <img class="card__image" src="/assets/img/b2.jpg" />
+    </div>*@
+
+    @foreach (CONVERSATION_DETAIL chatDetail in Model)
+    {
+        <div class="card" id="@chatDetail.Conversation_ID">
+            <div class="card__icon">
+                <img class="card__image" src="@chatDetail.CONVERSATION.CONVERSATION_DETAIL.Where(detail => detail.ID_User != chatDetail.ID_User).FirstOrDefault().ACCOUNT.Photos.Where(photo => photo.isAvatar == true).FirstOrDefault().Link" />
+            </div>
+            <div class="card__body">
+                <h5 class="card__body__title">@chatDetail.Name</h5>
+                @if (chatDetail.CONVERSATION.MESSAGEs.Count > 0)
+                {
+                    <p>@chatDetail.CONVERSATION.MESSAGEs.OrderBy(mess => mess.Time_sent).Reverse().FirstOrDefault().Message_text</p>
+                }
+                else
+                {
+                    //Chèn cái j đó để mở đầu hội thoại
+                }
+            </div>
         </div>
-        <div class="card__body">
-            <h5 class="card__body__title">Tùng hơi ngu</h5>
-            <p>Bạn đã thích abc</p>
-        </div>
-    </div>
+    }
 </div>
 <script>
-    $(document).on('click', '#message-list .card', function () {
-        $('.scroll-photos-area').html('')
-        $.ajax({
-            url: "/Velo/Chat",
-        }).done(function (rs) {
-            $('.scroll-photos-area').html(rs)
-        }).fail(function (err) {
-            console.log(err)
-        })
-    })
+    //$(document).on('click', '#message-list .card', function (e) {
+    //    //$('.scroll-photos-area').html('')
+    //    $.ajax({
+    //        data: { user_id: $('#id-user').val(), conversation_id: $(this).attr('id')},
+    //        url: "/Velo/Chat",
+    //    }).done(function (rs) {
+    //        $('.scroll-photos-area').html(rs)
+    //    }).fail(function (err) {
+    //        console.log(err)
+    //    })
+    //})
 
     $(function () {
-        
+        $('#message-list .card').click(function (e) {
+            //$('.scroll-photos-area').html('')
+            $.ajax({
+                data: { user_id: $('#id-user').val(), conversation_id: $(this).attr('id') },
+                url: "/Velo/Chat",
+            }).done(function (rs) {
+                $('.scroll-photos-area').html(rs)
+            }).fail(function (err) {
+                console.log(err)
+            })
+        })
     })
 </script>

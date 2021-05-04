@@ -12,6 +12,7 @@ namespace Velo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CONVERSATION()
         {
+            CONVERSATION_DETAIL = new HashSet<CONVERSATION_DETAIL>();
             MESSAGEs = new HashSet<MESSAGE>();
         }
 
@@ -19,15 +20,8 @@ namespace Velo.Models
         [StringLength(10)]
         public string Conversation_ID { get; set; }
 
-        [StringLength(10)]
-        public string User_ID1 { get; set; }
-
-        [StringLength(10)]
-        public string User_ID2 { get; set; }
-
-        public virtual ACCOUNT ACCOUNT { get; set; }
-
-        public virtual ACCOUNT ACCOUNT1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CONVERSATION_DETAIL> CONVERSATION_DETAIL { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MESSAGE> MESSAGEs { get; set; }

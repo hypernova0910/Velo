@@ -12,11 +12,10 @@ namespace Velo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ACCOUNT()
         {
+            CONVERSATION_DETAIL = new HashSet<CONVERSATION_DETAIL>();
             RELATIONs = new HashSet<RELATION>();
             RELATIONs1 = new HashSet<RELATION>();
             Photos = new HashSet<PHOTO>();
-            CONVERSATIONs = new HashSet<CONVERSATION>();
-            CONVERSATIONs1 = new HashSet<CONVERSATION>();
             MESSAGEs = new HashSet<MESSAGE>();
         }
 
@@ -49,6 +48,9 @@ namespace Velo.Models
         public string Email { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CONVERSATION_DETAIL> CONVERSATION_DETAIL { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RELATION> RELATIONs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -56,12 +58,6 @@ namespace Velo.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHOTO> Photos { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONVERSATION> CONVERSATIONs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONVERSATION> CONVERSATIONs1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MESSAGE> MESSAGEs { get; set; }

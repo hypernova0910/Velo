@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -30,9 +31,11 @@ namespace Velo.Controllers
             return PartialView();
         }
 
-        public ActionResult Message()
+        public ActionResult Message(string id)
         {
-            return PartialView();
+            var db = new MyDB();
+            ACCOUNT acc = db.ACCOUNTs.Find(id);
+            return PartialView(acc.CONVERSATION_DETAIL.ToList());
         }
 
         public ActionResult Notification()
@@ -42,7 +45,43 @@ namespace Velo.Controllers
 
         public ActionResult Chat()
         {
-            return PartialView();
+            var db = new MyDB();
+            string user_id = Request["user_id"];
+            string receiver_id = Request["receiver_id"];
+            string conversation_id = Request["conversation_id"];
+            SqlParameter senderId = new SqlParameter("@sender_id", user_id);
+            SqlParameter receiverId = new SqlParameter("@receiver_id", receiver_id);
+            CONVERSATION conversation = new CONVERSATION();
+            ViewBag.User_ID = user_id;
+            //var receiverId = receiver_id;
+            if (string.IsNullOrEmpty(conversation_id))
+            {
+                conversation_id = db.Database.SqlQuery<string>("getConversation @sender_id, @receiver_id", senderId, receiverId).FirstOrDefault();
+                if (string.IsNullOrEmpty(conversation_id))
+                {
+                    conversation.Conversation_ID = Guid.NewGuid().ToString().Substring(0, 10);
+                    ACCOUNT acc = db.ACCOUNTs.Find(user_id);
+                    ACCOUNT receiver = db.ACCOUNTs.Find(receiver_id);
+                    CONVERSATION_DETAIL chat_detail = new CONVERSATION_DETAIL();
+                    chat_detail.Name = receiver.Account_ID;
+                    chat_detail.ID_User = user_id;
+                    chat_detail.Conversation_ID = conversation.Conversation_ID;
+                    CONVERSATION_DETAIL chat_detail2 = new CONVERSATION_DETAIL();
+                    chat_detail2.Name = acc.Account_ID;
+                    chat_detail2.Conversation_ID = conversation.Conversation_ID;
+                    chat_detail2.ID_User = receiver_id;
+                    db.CONVERSATIONs.Add(conversation);
+                    db.CONVERSATION_DETAIL.Add(chat_detail);
+                    db.CONVERSATION_DETAIL.Add(chat_detail2);
+                    conversation.CONVERSATION_DETAIL.Add(chat_detail);
+                    conversation.CONVERSATION_DETAIL.Add(chat_detail2);
+                    db.SaveChanges();
+                    //conversation.CONVERSATION_DETAIL.Add(db)
+                    return PartialView(conversation);
+                }
+            }
+            conversation = db.CONVERSATIONs.Find(conversation_id);
+            return PartialView(conversation);
         }
 
         public ActionResult Photos(string id)

@@ -194,6 +194,7 @@
     <Compile Include="Models\ACCOUNT.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CONVERSATION.cs" />
+    <Compile Include="Models\CONVERSATION_DETAIL.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MESSAGE.cs" />
@@ -263,7 +264,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
-    <Content Include="Views\Welcome\SignUp.cshtml" />
     <Content Include="Views\Velo\Index.cshtml" />
     <Content Include="Views\Velo\Recent.cshtml" />
     <Content Include="Views\Velo\Message.cshtml" />
