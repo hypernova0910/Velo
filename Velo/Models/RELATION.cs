@@ -14,7 +14,7 @@ namespace Velo.Models
         public string Rela_ID { get; set; }
 
         [StringLength(10)]
-        public string Account_ID_sent { get; set; }
+        public string Account_ID_Sent { get; set; }
 
         [StringLength(10)]
         public string Account_ID_received { get; set; }

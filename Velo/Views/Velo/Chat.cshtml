@@ -11,7 +11,7 @@
             </div>
         </div>
         @*<div class="chat__info-name">
-                Nguyễn Minh Hiếup
+                Nguyễn Minh Hiếu
             </div>*@
     <h2>@Model.CONVERSATION_DETAIL.Where(detail => (detail.ID_User == ViewBag.User_ID)).FirstOrDefault().Name</h2>
         <div class="form-close">
@@ -24,7 +24,7 @@
         <section class="chat-window">
             @foreach (MESSAGE msg in Model.MESSAGEs.OrderBy(mess => mess.Time_sent))
             {
-                if (msg.User_ID_sent == ViewBag.User_ID)
+                if (msg.User_ID_Sent == ViewBag.User_ID)
                 {
                     <article class="msg-container msg-self" id="@msg.Message_ID">
                         <div class="msg-box">

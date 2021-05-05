@@ -14,7 +14,8 @@ namespace Velo.Models
         [StringLength(10)]
         public string Photo_ID { get; set; }
 
-        [StringLength(100)]
+        [Required]
+        [StringLength(500)]
         public string Link { get; set; }
 
         public DateTime? Time_added { get; set; }

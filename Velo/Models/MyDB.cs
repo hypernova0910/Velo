@@ -44,19 +44,19 @@ namespace Velo.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ACCOUNT>()
+                .HasMany(e => e.MESSAGEs)
+                .WithOptional(e => e.ACCOUNT)
+                .HasForeignKey(e => e.User_ID_Sent);
+
+            modelBuilder.Entity<ACCOUNT>()
                 .HasMany(e => e.RELATIONs)
                 .WithOptional(e => e.ACCOUNT)
-                .HasForeignKey(e => e.Account_ID_received);
+                .HasForeignKey(e => e.Account_ID_Sent);
 
             modelBuilder.Entity<ACCOUNT>()
                 .HasMany(e => e.RELATIONs1)
                 .WithOptional(e => e.ACCOUNT1)
-                .HasForeignKey(e => e.Account_ID_sent);
-
-            modelBuilder.Entity<ACCOUNT>()
-                .HasMany(e => e.MESSAGEs)
-                .WithOptional(e => e.ACCOUNT)
-                .HasForeignKey(e => e.User_ID_sent);
+                .HasForeignKey(e => e.Account_ID_received);
 
             modelBuilder.Entity<CONVERSATION>()
                 .Property(e => e.Conversation_ID)
@@ -84,7 +84,7 @@ namespace Velo.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<MESSAGE>()
-                .Property(e => e.User_ID_sent)
+                .Property(e => e.User_ID_Sent)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -99,10 +99,6 @@ namespace Velo.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHOTO>()
-                .Property(e => e.Link)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PHOTO>()
                 .Property(e => e.ID_User)
                 .IsFixedLength()
                 .IsUnicode(false);
@@ -113,7 +109,7 @@ namespace Velo.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<RELATION>()
-                .Property(e => e.Account_ID_sent)
+                .Property(e => e.Account_ID_Sent)
                 .IsFixedLength()
                 .IsUnicode(false);
 

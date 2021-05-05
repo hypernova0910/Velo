@@ -19,7 +19,7 @@ namespace Velo.Models
         public DateTime? Time_sent { get; set; }
 
         [StringLength(10)]
-        public string User_ID_sent { get; set; }
+        public string User_ID_Sent { get; set; }
 
         [StringLength(10)]
         public string Conversation_ID { get; set; }

@@ -13,10 +13,10 @@ namespace Velo.Models
         public ACCOUNT()
         {
             CONVERSATION_DETAIL = new HashSet<CONVERSATION_DETAIL>();
+            MESSAGEs = new HashSet<MESSAGE>();
+            Photos = new HashSet<PHOTO>();
             RELATIONs = new HashSet<RELATION>();
             RELATIONs1 = new HashSet<RELATION>();
-            Photos = new HashSet<PHOTO>();
-            MESSAGEs = new HashSet<MESSAGE>();
         }
 
         [Key]
@@ -47,19 +47,21 @@ namespace Velo.Models
         [StringLength(50)]
         public string Email { get; set; }
 
+        public bool isVip { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONVERSATION_DETAIL> CONVERSATION_DETAIL { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MESSAGE> MESSAGEs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHOTO> Photos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RELATION> RELATIONs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RELATION> RELATIONs1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHOTO> Photos { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MESSAGE> MESSAGEs { get; set; }
     }
 }
