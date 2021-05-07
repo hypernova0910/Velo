@@ -212,6 +212,7 @@
     <Content Include="assets\css\edit.css" />
     <Content Include="assets\css\form.css" />
     <Content Include="assets\css\home.css" />
+    <Content Include="assets\css\Upgrade.css" />
     <Content Include="assets\css\welcome.css" />
     <Content Include="assets\img\b1.jpg" />
     <Content Include="assets\img\b2.jpg" />
@@ -275,6 +276,7 @@
     <Content Include="Views\Velo\Photos.cshtml" />
     <Content Include="Views\Velo\Edit.cshtml" />
     <Content Include="Views\Velo\Community.cshtml" />
+    <Content Include="Views\Velo\Upgrade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

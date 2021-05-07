@@ -95,6 +95,15 @@
                     <label for="hobby" class="info-label">Sở thích</label>
                     <span class="info-detail">@Model.Hobby</span>
                 </div>
+                <div class="upgrade-account">
+                    <a href="/Velo/Upgrade" target="_blank">
+                        <div class="info-frame" title="info-6">
+                            <span class="fas fa-user-tie" style="font-size: 100%"></span>
+                            <label for="hobby" class="info-label">Loại tài khoản</label>
+                            <span class="info-detail">@Model.isVip</span>
+                        </div>
+                    </a>
+                </div>
                 <div class="info-frame" id="edit">
                     <span class="fas fa-user-edit" style="font-size: 100%"></span>
                     <label for="info-edit" class="info-label">Chỉnh sửa thông tin cá nhân</label>
@@ -107,23 +116,9 @@
                     <label for="active-status" class="info-label">Trạng thái hoạt động gần đây</label>
                 </div>
             </div>
-            <div class="manage-language">
-                <h3 style="font-size: 150%">NGÔN NGỮ</h3>
-                <div class="info-frame">
-                    <span class="fas fa-language" style="font-size: 100%"></span>
-                    <label for="language" class="info-label">Ngôn ngữ</label>
-                </div>
-            </div>
-            <div class="support-help">
-                <h3 style="font-size: 150%">TRỢ GIÚP & HỖ TRỢ</h3>
-                <div class="info-frame">
-                    <span class="fas fa-hands-helping" style="font-size: 100%"></span>
-                    <label for="support" class="info-label">Trợ giúp & Hỗ trợ</label>
-                </div>
-            </div>
             <div class="community">
                 <h3 style="font-size: 150%">CỘNG ĐỒNG</h3>
-                <a href="/Velo/Community">
+                <a href="/Velo/Community" target="_blank">
                     <div class="info-frame">
                         <span class="fas fa-users" style="font-size: 100%"></span>
                         <label for="community-rules" class="info-label"> Quy tắc cộng đồng</label>

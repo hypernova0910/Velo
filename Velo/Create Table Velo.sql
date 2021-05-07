@@ -46,6 +46,13 @@ CREATE TABLE RELATION(
 	Account_ID_received CHAR(10) REFERENCES ACCOUNT(ID_User)
 )
 
+GO
+CREATE proc [dbo].[getConversation] @sender_id char(10), @receiver_id char(10) as
+begin
+	select chat1.Conversation_ID from CONVERSATION_DETAIL as chat1, CONVERSATION_DETAIL as chat2
+	where chat1.Conversation_ID = chat2.Conversation_ID and chat2.ID_User = @receiver_id and chat1.ID_User = @sender_id
+end
+
 --DROP TABLE CONVERSATION_DETAIL
 --DROP TABLE RELATION
 --DROP TABLE PHOTO

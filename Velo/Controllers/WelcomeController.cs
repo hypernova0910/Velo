@@ -57,18 +57,22 @@ namespace Velo.Controllers
                     acc.Nationality = nationality;
                     acc.Hobby = hobby;
 
+                    pic.Photo_ID = Guid.NewGuid().ToString().Substring(0, 10);
+                    pic.ID_User = acc.ID_User;
+                    pic.isAvatar = true;
+                    pic.Time_added = DateTime.Now;
                     if (pic.ImageUpload != null)
                     {
-                        pic.Photo_ID = Guid.NewGuid().ToString().Substring(0, 10);
                         string fileName = Path.GetFileNameWithoutExtension(pic.ImageUpload.FileName);
                         string extension = Path.GetExtension(pic.ImageUpload.FileName);
                         fileName = fileName + extension;
                         pic.Link = "/assets/img/" + fileName;
                         pic.ImageUpload.SaveAs(Path.Combine(Server.MapPath("/assets/img/"), fileName));
-                        pic.ID_User = acc.ID_User;
-                        pic.isAvatar = true;
-                        pic.Time_added = DateTime.Now;
                     }
+                    else
+                    {
+                        pic.Link = "/assets/img/user-icon.png";
+                    }  
                     ViewBag.Link = pic.Link;
                     db.ACCOUNTs.Add(acc);
                     db.Photos.Add(pic);

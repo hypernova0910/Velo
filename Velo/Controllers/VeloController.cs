@@ -15,7 +15,7 @@ namespace Velo.Controllers
         public ActionResult Index(ACCOUNT acc)
         {
             MyDB db = new MyDB();
-            List<PHOTO> pics = db.Photos.Where(r => r.ID_User == acc.ID_User).Take(1).ToList<PHOTO>();
+            List<PHOTO> pics = db.Photos.Where(r => r.ID_User == acc.ID_User && r.isAvatar == true).Take(1).ToList<PHOTO>();
             if (pics.Count != 0)
             {
                 PHOTO pic = pics[0];
@@ -129,7 +129,7 @@ namespace Velo.Controllers
         {
             var con = new MyDB();
             var acc = con.ACCOUNTs.Where(r => r.ID_User == id).FirstOrDefault();
-            PHOTO pic = con.Photos.Where(a => a.ID_User == id).FirstOrDefault();
+            PHOTO pic = con.Photos.Where(a => a.ID_User == id && a.isAvatar == true).FirstOrDefault();
             ViewBag.URL = pic.Link;
             return PartialView(acc);
         }
@@ -141,22 +141,15 @@ namespace Velo.Controllers
             MyDB con = new MyDB();
             try
             {
-                if (String.IsNullOrEmpty(acc.Account_ID) || String.IsNullOrEmpty(acc.Pass) || String.IsNullOrEmpty(acc.Name) || String.IsNullOrEmpty(acc.Email) ||
-                    String.IsNullOrEmpty(acc.Gender) || String.IsNullOrEmpty(acc.Nationality) || String.IsNullOrEmpty(acc.Hobby))
-                {
-                    ViewBag.Error3 = "Thông tin chưa đầy đủ";
-                    return PartialView("Edit", acc);
-                }
-                else
-                {
                     var model = con.ACCOUNTs.Find(acc.ID_User);
+                    model.Account_ID = acc.Account_ID;
+                    model.Name = acc.Name;
                     model.Email = acc.Email;
                     model.DateOfBirth = acc.DateOfBirth;
                     model.Nationality = acc.Nationality;
                     model.Hobby = acc.Hobby;
                     model.Gender = acc.Gender;
                     model.Pass = acc.Pass;
-                }
 
                 if (pic.ImageUpload != null)
                 {
@@ -170,7 +163,6 @@ namespace Velo.Controllers
                     picNew.isAvatar = true;
                     picNew.Time_added = DateTime.Now;
                 }
-
                 con.SaveChanges();
                 return RedirectToAction("Index", acc);
             }
@@ -184,6 +176,10 @@ namespace Velo.Controllers
             var con = new MyDB();
             var acc = con.ACCOUNTs.Where(r => r.ID_User == id).FirstOrDefault();
             return RedirectToAction("Index", acc);
+        }
+        public ActionResult Upgrade()
+        {
+            return View();
         }
         public ActionResult Community()
         {

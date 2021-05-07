@@ -49,6 +49,27 @@ $('#edit').on('click', function (e) {
     })
 })
 
+$('#form-edit').submit(function (e) {
+    e.preventDefault();
+    var a = $('#name').val();
+    var b = $('#password1').val();
+    var c = $('#birthday').val();
+    var d = $('#nation').val();
+    var e = $('#hobby').val();
+    var f = $('#password_confirmation').val();
+    var g = $('#email1').val()
+    var div = document.getElementById('spacer');
+    if (a === "" || b === "" || c === "" || d === "" || e === "" || g === "") {
+        div.innerHTML = "Thông tin chưa đầy đủ";
+    }
+    else if (b !== f) {
+        div.innerHTML = "Mật khẩu không khớp";
+    }
+    else {
+        $(this).unbind('submit').submit()
+    }
+})
+
 $(function () {
     $.ajax({
         url: "/Velo/Photos/" + $('#id-user').val(),

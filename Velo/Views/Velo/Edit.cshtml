@@ -1,9 +1,9 @@
 ﻿@using Velo.Models
 @model ACCOUNT
 
-@if (string.IsNullOrEmpty(ViewBag.Error))
-{
+<script src="~/assets/js/eventHomePage.js"></script>
     <form action="/Velo/Edit" method="POST" class="form" id="form-edit" enctype="multipart/form-data">
+        <input id="error-value" type="hidden" value="@ViewBag.Error3"/>
         <input id="id-user" type="hidden" value="@Model.ID_User" name="ID_User" />
         <div class="edit-close">
             <a href="/Velo/Close/@Model.ID_User"><i class="fas fa-chevron-left" style="font-size: 20px; float: left; margin-left: 8px"></i></a>
@@ -16,6 +16,8 @@
             </div>
             <input class="form-avatar" type="file" name="ImageUpload" />
         </div>
+
+        <div id="spacer" style="color:red; text-align: center"></div>
 
         <div class="form-group">
             <label for="Account_ID" class="form-label">Tên đăng nhập</label>
@@ -95,110 +97,5 @@
             <span class="form-message"></span>
         </div>
 
-        <button class="form-submit" id="Save">Lưu</button>
+        <button class="form-submit" id="Save" type="submit">Lưu</button>
     </form>
-}
-else
-{
-<form action="/Velo/Edit" method="POST" class="form" id="form-edit" enctype="multipart/form-data">
-    <input id="id-user" type="hidden" value="@Model.ID_User" name="ID_User" />
-    <div class="edit-close">
-        <i class="fas fa-chevron-left" style="font-size: 20px; float: left; margin-left: 8px"></i>
-        <h3 class="form__heading" style="text-align: center; display: flow-root; font-size: 1.5em;">Chỉnh sửa thông tin cá nhân</h3>
-    </div>
-    @*<p class="form__desc">Chào mừng bạn đến với Velo</p>*@
-
-    @*<div id="error" class="spacer" style="color: red"></div>*@
-
-    <div class="avatar-wrapper">
-        <img class="profile-pic" src="@ViewBag.URL" />
-        <div class="upload-button">
-            <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-        </div>
-        <input class="form-avatar" type="file" name="ImageUpload" />
-    </div>
-
-    <div class="spacer" style="color:red">@ViewBag.Error3</div>
-
-    <div class="form-group">
-        <label for="Account_ID" class="form-label">Tên đăng nhập</label>
-        <input id="id" name="Account_ID" type="text" value="@Model.Account_ID" class="form-control">
-        <span class="form-message"></span>
-    </div>
-    <div class="form-group">
-        <label for="Name" class="form-label">Họ tên</label>
-        <input id="name" name="Name" value="@Model.Name" type="text" class="form-control">
-        <span class="form-message"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="Pass" class="form-label">Mật khẩu</label>
-        <input id="password1" name="Pass" type="password" value="@Model.Pass" class="form-control">
-        <span class="form-message"></span>
-    </div>
-    <div class="form-group">
-        <label for="password_confirmation" class="form-label">Xác nhận mật khẩu</label>
-        <input id="password_confirmation" name="password_confirmation" type="password" class="form-control">
-        <span class="form-message"></span>
-    </div>
-    <div class="form-group">
-        <label for="Email" class="form-label">Email</label>
-        <input id="email1" name="Email" type="email" value="@Model.Email" class="form-control">
-        <span class="form-message"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="DateOfBirth" class="form-label">Ngày sinh</label>
-        <input id="birthday" name="DateOfBirth" value="@Model.DateOfBirth.Value.ToString("yyyy-MM-dd")" type="date" class="form-control">
-        <span class="form-message"></span>
-    </div>
-    <div class="form-group">
-        <label for="Gender" class="form-label">Giới tính</label>
-        <select id="gender" , name="Gender" class="form-control">
-            <option value="Nam" selected="selected">Nam</option>
-            <option value="Nữ">Nữ</option>
-            <option value="LGBT">LGBT</option>
-        </select>
-        <span class="form-message"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="Nationality" class="form-label">Quốc tịch</label>
-        <select id="nation" name="Nationality" class="form-control">
-            <option value="Việt Nam" selected="selected">Việt Nam</option>
-            <option value="Thái Lan">Thái Lan</option>
-            <option value="Trung Quốc">Trung Quốc</option>
-            <option value="Nhật Bản">Nhật Bản</option>
-            <option value="Hàn Quốc">Hàn Quốc</option>
-            <option value="Mỹ">Mỹ</option>
-            <option value="Canada">Canada</option>
-            <option value="Brazil">Brazil</option>
-            <option value="Italia">Italia</option>
-            <option value="Pháp">Pháp</option>
-            <option value="Đức">Đức</option>
-            <option value="Nga">Nga</option>
-            <option value="Nam Phi">Nam Phi</option>
-        </select>
-        <span class="form-message"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="Hobby" class="form-label">Sở thích</label>
-        <input id="hobby" name="Hobby" type="text" placeholder="Sở thích" class="form-control" list="hobbies" value="@Model.Hobby">
-        <datalist id="hobbies">
-            <option value="Ẩm thực"></option>
-            <option value="Làm đẹp"></option>
-            <option value="Thời trang"></option>
-            <option value="Nghiên cứu"></option>
-            <option value="Thể thao"></option>
-            <option value="Du lịch"></option>
-            <option value="Công nghệ"></option>
-            <option value="Động vật"></option>
-        </datalist>
-        <span class="form-message"></span>
-    </div>
-
-    <button class="form-submit" id="Save">Lưu</button>
-</form>
-}
-<script src="~/assets/js/eventHomePage.js"></script>
