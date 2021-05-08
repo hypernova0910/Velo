@@ -227,6 +227,7 @@
     <Content Include="assets\img\user-icon.png" />
     <Content Include="assets\js\event.js" />
     <Content Include="assets\js\eventHomePage.js" />
+    <Content Include="assets\js\eventPayment.js" />
     <Content Include="assets\js\formvalidation.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -277,6 +278,8 @@
     <Content Include="Views\Velo\Edit.cshtml" />
     <Content Include="Views\Velo\Community.cshtml" />
     <Content Include="Views\Velo\Upgrade.cshtml" />
+    <Content Include="Views\Velo\CookiePolicy.cshtml" />
+    <Content Include="Views\Velo\PrivacyPolicy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

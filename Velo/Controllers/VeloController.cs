@@ -141,15 +141,15 @@ namespace Velo.Controllers
             MyDB con = new MyDB();
             try
             {
-                    var model = con.ACCOUNTs.Find(acc.ID_User);
-                    model.Account_ID = acc.Account_ID;
-                    model.Name = acc.Name;
-                    model.Email = acc.Email;
-                    model.DateOfBirth = acc.DateOfBirth;
-                    model.Nationality = acc.Nationality;
-                    model.Hobby = acc.Hobby;
-                    model.Gender = acc.Gender;
-                    model.Pass = acc.Pass;
+                var model = con.ACCOUNTs.Find(acc.ID_User);
+                model.Account_ID = acc.Account_ID;
+                model.Name = acc.Name;
+                model.Email = acc.Email;
+                model.DateOfBirth = acc.DateOfBirth;
+                model.Nationality = acc.Nationality;
+                model.Hobby = acc.Hobby;
+                model.Gender = acc.Gender;
+                model.Pass = acc.Pass;
 
                 if (pic.ImageUpload != null)
                 {
@@ -177,11 +177,34 @@ namespace Velo.Controllers
             var acc = con.ACCOUNTs.Where(r => r.ID_User == id).FirstOrDefault();
             return RedirectToAction("Index", acc);
         }
-        public ActionResult Upgrade()
+        public ActionResult Upgrade(string id)
+        {
+            var con = new MyDB();
+            var acc = con.ACCOUNTs.Where(r => r.ID_User == id).FirstOrDefault();
+            return View(acc);
+        }
+
+        [HttpPost]
+        public ActionResult Upgrade(FormCollection data)
+        {
+            string id = data["user_id"];
+            using(var con = new MyDB())
+            {
+                var acc = con.ACCOUNTs.Find(id);
+                acc.isVip = true;
+                con.SaveChanges();
+                return RedirectToAction("Index", acc);
+            }
+        }
+        public ActionResult Community()
         {
             return View();
         }
-        public ActionResult Community()
+        public ActionResult CookiePolicy()
+        {
+            return View();
+        }
+        public ActionResult PrivacyPolicy()
         {
             return View();
         }

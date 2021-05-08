@@ -2,6 +2,8 @@
     ViewBag.Title = "Upgrade Account";
     Layout = null;
 }
+@using Velo.Models
+@model ACCOUNT
 
 <head>
     <link href="~/assets/css/base.css" rel="stylesheet" />
@@ -10,4 +12,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
+<body style="background-color: lightpink;">
+    <div class="welcome__header">
+        <img src="#" alt="logo" />
+        <p class="brand">Velo</p>
+    </div>
+    <div class="spacer" style="height: 50px"></div>
+    @if (@Model.isVip == false)
+    {
+        <div class="container">
+            <form action="/Velo/Upgrade" method="POST" class="form" id="form-payment">
+                <input id="id-user2" name="user_id" type="hidden" value="@Model.ID_User" />
+                <div class="account-name" style="text-align:center; font-size: 3.5rem; margin: 50px 0;">
+                    <p>Chào mừng @Model.Name đến với!</p>
+                </div>
+                <h1 style="text-align:center; font-size: 50px;">
+                    Cổng thanh toán nâng cấp tài khoản
+                </h1>
+                <div id="error-noti" style="color:red; text-align: center"></div>
+                <table align="center">
+                    <tr>
+                        <td align="left" class="label-payment">Giá tiền:</td>
+                        <td align="center" class="info-payment">50$</td>
+                    </tr>
+                    <tr>
+                        <td align="left" class="label-payment">Lựa chọn thẻ thanh toán:</td>
+                        <td class="info-payment">
+                            <select name="card-type" id="select-card">
+                                <option value="1">Visa</option>
+                                <option value="2">MasterCard</option>
+                                <option value="3">PayPal</option>
+                                <option value="4">VietcomBank</option>
+                                <option value="5">TechcomBank</option>
+                                <option value="6">BIDV</option>
+                                <option value="7">VPBank</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" class="label-payment">Số tài khoản:</td>
+                        <td class="info-payment"><input type="text" id="info-account-number" placeholder="19024705183012" style=" width: 100%; text-align: center; max-width: 500px;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="button-payment" align="right">
+                            <button type="submit" style="background-color:aquamarine; font-size: 2rem;">Thanh toán</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <div class="far fa-check-circle fa-5x" style="color: #14b512; text-align:center; display: block">
+            </div>
+            <p style="font-size: 5rem; color:#14b512; text-align:center">Tài khoản đã nâng cấp tính năng VIP</p>
+        </div>
+    }
+
+</body>
+
+<script src="~/assets/js/eventPayment.js"></script>

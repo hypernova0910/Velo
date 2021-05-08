@@ -95,54 +95,58 @@
                     <label for="hobby" class="info-label">Sở thích</label>
                     <span class="info-detail">@Model.Hobby</span>
                 </div>
-                <div class="upgrade-account">
-                    <a href="/Velo/Upgrade" target="_blank">
-                        <div class="info-frame" title="info-6">
-                            <span class="fas fa-user-tie" style="font-size: 100%"></span>
-                            <label for="hobby" class="info-label">Loại tài khoản</label>
-                            <span class="info-detail">@Model.isVip</span>
-                        </div>
-                    </a>
-                </div>
+                @if (@Model.isVip == false)
+                {
+                    <div class="upgrade-account">
+                        <a href="/Velo/Upgrade/@Model.ID_User" target="_blank">
+                            <div class="info-frame" title="info-6">
+                                <span class="fas fa-user-tie" style="font-size: 100%; color: black"></span>
+                                <label for="hobby" class="info-label">Loại tài khoản</label>
+                                <span class="info-detail">Thường</span>
+                            </div>
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="upgrade-account">
+                        <a href="/Velo/Upgrade/@Model.ID_User" target="_blank">
+                            <div class="info-frame" title="info-6">
+                                <span class="fas fa-user-tie" style="font-size: 100%; color: black"></span>
+                                <label for="hobby" class="info-label">Loại tài khoản</label>
+                                <span class="info-detail" style="color: black">VIP</span>
+                            </div>
+                        </a>
+                    </div>
+                }
                 <div class="info-frame" id="edit">
-                    <span class="fas fa-user-edit" style="font-size: 100%"></span>
+                    <span class="fas fa-user-edit" style="font-size: 100%; color: black"></span>
                     <label for="info-edit" class="info-label">Chỉnh sửa thông tin cá nhân</label>
-                </div>
-            </div>
-            <div class="activity-status">
-                <h3 style="font-size: 150%">TRẠNG THÁI HOẠT ĐỘNG</h3>
-                <div class="info-frame">
-                    <span class="fas fa-toggle-on" style="font-size: 100%"></span>
-                    <label for="active-status" class="info-label">Trạng thái hoạt động gần đây</label>
                 </div>
             </div>
             <div class="community">
                 <h3 style="font-size: 150%">CỘNG ĐỒNG</h3>
                 <a href="/Velo/Community" target="_blank">
                     <div class="info-frame">
-                        <span class="fas fa-users" style="font-size: 100%"></span>
+                        <span class="fas fa-users" style="font-size: 100%; color: black"></span>
                         <label for="community-rules" class="info-label"> Quy tắc cộng đồng</label>
                     </div>
                 </a>
             </div>
             <div class="legal">
                 <h3 style="font-size: 150%">PHÁP LÝ</h3>
-                <div class="info-frame">
-                    <span class="fas fa-user-shield" style="font-size: 100%"></span>
-                    <label for="privacy-policy" class="info-label">Chính sách về quyền riêng tư</label>
-                </div>
-                <div class="info-frame">
-                    <span class="fas fa-cookie" style="font-size: 100%"></span>
-                    <label for="cookie-policy" class="info-label"> Chính sách về cookie</label>
-                </div>
-                <div class="info-frame">
-                    <span class="fas fa-cog" style="font-size: 100%"></span>
-                    <label for="privacy-setting" class="info-label">Cài đặt chính sách</label>
-                </div>
-                <div class="info-frame">
-                    <span class="fas fa-book" style="font-size: 100%"></span>
-                    <label for="terms-of-service" class="info-label">Điều khoản dịch vụ</label>
-                </div>
+                <a href="/Velo/PrivacyPolicy">
+                    <div class="info-frame">
+                        <span class="fas fa-user-shield" style="font-size: 100%; color: black"></span>
+                        <label for="privacy-policy" class="info-label">Chính sách về quyền riêng tư</label>
+                    </div>
+                </a>
+                <a href="/Velo/CookiePolicy">
+                    <div class="info-frame">
+                        <span class="fas fa-cookie" style="font-size: 100%; color: black"></span>
+                        <label for="cookie-policy" class="info-label"> Chính sách về cookie</label>
+                    </div>
+                </a>
             </div>
             <a href="/Welcome/Index">
                 <div class="log-out">

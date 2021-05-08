@@ -1,2 +1,39 @@
-﻿body {
+﻿.welcome__header {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    background-color: #fc785a;
+    position: relative;
+    top: 0;
+    opacity: 0.8;
+    box-shadow: 0 10px 10px;
+    color: black;
+}
+.brand {
+    text-align: center;
+    font-size: 50px;
+    display: inherit;
+    margin: 0 auto;
+}
+
+table {
+    margin-top: 50px;
+    height:30%;
+}
+
+#select-card {
+    text-align-last: center;
+    width: 100%;
+    max-width: 500px;
+}
+.label-payment {
+    font-size: 2rem;
+    width: 30%;
+}
+.info-payment {
+    width: 40%;
+}
+.button-payment {
+    width: 50%;
 }
