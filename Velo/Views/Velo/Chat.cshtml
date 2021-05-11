@@ -34,7 +34,7 @@
                                         @msg.Message_text
                                     </p>
                                 </div>
-                                <div class="timestamp"><span class="posttime">@msg.Time_sent.ToString()</span></div>
+                                <div class="timestamp"><span class="posttime">@msg.Time_sent.Value.ToString("HH:mm:ss dd/MM/yyyy")</span></div>
                             </div>
                             <img class="user-img" src="@msg.ACCOUNT.Photos.Where(photo => photo.isAvatar == true).FirstOrDefault().Link" />
                         </div>
@@ -43,7 +43,7 @@
                 else
                 {
                     <article class="msg-container msg-remote" id="@msg.Message_ID">
-                        <div class="msg-box">
+                        <div class="msg-box">:
                             <img class="user-img" src="@msg.ACCOUNT.Photos.Where(photo => photo.isAvatar == true).FirstOrDefault().Link" />
                             <div class="flr">
                                 <div class="messages">
@@ -51,7 +51,7 @@
                                         @msg.Message_text
                                     </p>
                                 </div>
-                                <div class="timestamp"><span class="posttime">@msg.Time_sent.ToString()</span></div>
+                                <div class="timestamp"><span class="posttime">@msg.Time_sent.Value.ToString("HH:mm:ss dd/MM/yyyy")</span></div>
                             </div>
                         </div>
                     </article>
@@ -102,7 +102,7 @@
                     Conversation_ID: $('#conversation-id').val(),
                     User_ID_sent: $('#id-user').val(),
                     Message_text: $('#message-text').val(),
-                    Time_sent: Date.now
+                    Time_sent: (new Date()).toLocaleString()
                 }
                 var Message_ID = chatHub.server.message(JSON.stringify(message));
                 console.log(Message_ID)
