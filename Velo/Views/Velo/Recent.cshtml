@@ -1,18 +1,30 @@
-﻿<div class="field">
-    <div class="card">
-        <div class="card__icon card__icon--love">
-            <i class="fas fa-heart"></i>
+﻿@using Velo.Models
+@model IEnumerable<RELATION>
+
+    @*<div class="card">
+            <div class="card__icon card__icon--love">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="card__body">
+                <p>bạn đã thích abc</p>
+            </div>
         </div>
-        <div class="card__body">
-            <p>bạn đã thích abc</p>
+        <div class="card">
+            <div class="card__icon card__icon--love">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="card__body">
+                <p>bạn đã thích abc</p>
+            </div>
+        </div>*@
+    @foreach (RELATION rela in Model)
+    {
+        <div class="card">
+            <div class="card__icon card__icon--love">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="card__body">
+                <p>bạn đã thích @rela.ACCOUNT1.Account_ID</p>
+            </div>
         </div>
-    </div>
-    <div class="card">
-        <div class="card__icon card__icon--love">
-            <i class="fas fa-heart"></i>
-        </div>
-        <div class="card__body">
-            <p>bạn đã thích abc</p>
-        </div>
-    </div>
-</div>
+    }

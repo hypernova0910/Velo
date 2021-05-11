@@ -5,34 +5,35 @@
 })
 
 $('#recent').on('click', function (e) {
-    $('.nav-area .field').remove()
+    //$('.nav-area .field').remove()
     $.ajax({
-        url: "/Velo/Recent",
+        url: "/Velo/Recent/" + $('#id-user').val()
     }).done(function (rs) {
-        $('.nav-area').append(rs)
-    }).fail(function (e) {
+        $('.field').html(rs)
+    }).fail(function (err) {
         console.log(err)
     })
 })
 
 $('#message').on('click', function (e) {
-    $('.nav-area .field').remove()
-    console.log($('#id-user').val())
+    //$('.nav-area .field').remove()
+    //console.log($('#id-user').val())
     $.ajax({
         url: "/Velo/Message/" + $('#id-user').val(),
     }).done(function (rs) {
-        $('.nav-area').append(rs)
-    }).fail(function (e) {
+        $('.field').html(rs)
+    }).fail(function (err) {
         console.log(err)
     })
 })
 
 $('#notification').on('click', function (e) {
-    $('.nav-area .field').remove()
+    //console.log($('#id-user').val())
+    //$('.nav-area .field').remove()
     $.ajax({
-        url: "/Velo/Notification",
+        url: "/Velo/Notification/" + $('#id-user').val()
     }).done(function (rs) {
-        $('.nav-area').append(rs)
+        $('.field').html(rs)
     }).fail(function (err) {
         console.log(err)
     })
@@ -72,7 +73,15 @@ $('#form-edit').submit(function (e) {
 
 $(function () {
     $.ajax({
-        url: "/Velo/Photos/" + $('#id-user').val(),
+        url: "/Velo/Recent/" + $('#id-user').val()
+    }).done(function (rs) {
+        $('.field').html(rs)
+    }).fail(function (err) {
+        console.log(err)
+    })
+
+    $.ajax({
+        url: "/Velo/Photos/" + $('#id-user').val()
     }).done(function (rs) {
         $('.scroll-photos-area').html(rs)
     }).fail(function (err) {

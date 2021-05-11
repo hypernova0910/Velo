@@ -26,9 +26,11 @@ namespace Velo.Controllers
             return View(acc);
         }
 
-        public ActionResult Recent()
+        public ActionResult Recent(string id)
         {
-            return PartialView();
+            var db = new MyDB();
+            ACCOUNT acc = db.ACCOUNTs.Find(id);
+            return PartialView(acc.RELATIONs.ToList());
         }
 
         public ActionResult Message(string id)
@@ -38,9 +40,25 @@ namespace Velo.Controllers
             return PartialView(acc.CONVERSATION_DETAIL.ToList());
         }
 
-        public ActionResult Notification()
+        public ActionResult Notification(string id)
         {
-            return PartialView();
+            var db = new MyDB();
+            ACCOUNT acc = db.ACCOUNTs.Find(id);
+            return PartialView(acc.RELATIONs1.ToList());
+        }
+
+        public ActionResult Like()
+        {
+            var db = new MyDB();
+            string user_id = Request["user_id"];
+            string receiver_id = Request["receiver_id"];
+            RELATION rela = new RELATION();
+            rela.Rela_ID = Guid.NewGuid().ToString().Substring(0, 10);
+            rela.Account_ID_Sent = user_id;
+            rela.Account_ID_received = receiver_id;
+            db.RELATIONs.Add(rela);
+            db.SaveChanges();
+            return View();
         }
 
         public ActionResult Chat()

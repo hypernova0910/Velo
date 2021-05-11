@@ -280,6 +280,7 @@
     <Content Include="Views\Velo\Upgrade.cshtml" />
     <Content Include="Views\Velo\CookiePolicy.cshtml" />
     <Content Include="Views\Velo\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Velo\Like.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

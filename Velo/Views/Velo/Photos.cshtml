@@ -38,6 +38,7 @@
             <h1>@acc.Account_ID<span class="h4"> @acc.DateOfBirth</span></h1>
             <h3>Sở thích: <span>@acc.Hobby</span></h3>
             <button class="chat-button">Nhắn tin</button>
+            <button class="like">Thích</button>
         </div>
     </div>
 }
@@ -49,6 +50,18 @@
             url: "/Velo/Chat",
         }).done(function (rs) {
             $('.scroll-photos-area').html(rs)
+        }).fail(function (err) {
+            console.log(err)
+        })
+    })
+
+    $('.like').click(function (e) {
+        $.ajax({
+            data: { user_id: $('#id-user').val(), receiver_id: $(this).parent().parent().attr('id') },
+            url: "/Velo/Like",
+        }).done(function (rs) {
+            console.log('Success')
+            e.target.textContent = "Đã thích"
         }).fail(function (err) {
             console.log(err)
         })

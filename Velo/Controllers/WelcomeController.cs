@@ -12,6 +12,7 @@ namespace Velo.Controllers
     public class WelcomeController : Controller
     {
         // GET: Velo
+        [AllowAnonymous]
         public ActionResult Index()
         {
             ViewBag.Error = "";
