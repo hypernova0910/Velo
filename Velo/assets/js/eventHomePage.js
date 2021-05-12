@@ -89,6 +89,16 @@ $(function () {
     })
 })
 
+//$('#log-out1').on('click', function (e) {
+//    $.ajax({
+//        url: "/Velo/LogOut"
+//    }).done(function (rs) {
+
+//    }).fail(function (er) {
+//        console.log(er)
+//    })
+//})
+
 //function myFunction(id) {
 //    document.getElementById(id).classList.toggle("show");
 //}

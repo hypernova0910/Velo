@@ -78,6 +78,7 @@ namespace Velo.Controllers
                     db.ACCOUNTs.Add(acc);
                     db.Photos.Add(pic);
                     db.SaveChanges();
+                    Session["AccountLogin"] = acc.ID_User;
                     return RedirectToAction("Index", "Velo", acc);
                 }
             }
@@ -101,6 +102,7 @@ namespace Velo.Controllers
                 else
                 {
                     ACCOUNT acc = accs[0];
+                    Session["AccountLogin"] = acc.ID_User;
                     return RedirectToAction("Index", "Velo", acc);
                 }
             }

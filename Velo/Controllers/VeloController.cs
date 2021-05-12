@@ -9,7 +9,7 @@ using Velo.Models;
 
 namespace Velo.Controllers
 {
-    public class VeloController : Controller
+    public class VeloController : AuthController
     {
         // GET: Velo
         public ActionResult Index(ACCOUNT acc)
@@ -225,6 +225,11 @@ namespace Velo.Controllers
         public ActionResult PrivacyPolicy()
         {
             return View();
+        }
+        public ActionResult LogOut()
+        {
+            Session["AccountLogin"] = "";
+            return RedirectToAction("Index", "Welcome");
         }
         // GET: Velo/Delete/5
         public ActionResult Delete(int id)
