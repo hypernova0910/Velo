@@ -105,7 +105,16 @@ namespace Velo.Controllers
         public ActionResult Photos(string id)
         {
             var db = new MyDB();
-            var accs = db.ACCOUNTs.Where(r=> r.ID_User != id).ToList<ACCOUNT>();
+            ACCOUNT user = db.ACCOUNTs.Find(id);
+            var accs = db.ACCOUNTs.Where(a=> a.ID_User != id && a.RELATIONs1.Where(r => r.Account_ID_Sent == id).Count() == 0).ToList();
+            //var accsLiked = from a in db.ACCOUNTs
+            //           from r in db.RELATIONs
+            //          where a.ID_User == id
+            //          where r.Account_ID_Sent == id
+            //          where r.Account_ID_received == a.ID_User
+            //          select a;
+            ////List<ACCOUNT> accl = accs;
+            //List<ACCOUNT> acclikedl = accsLiked.ToList();
             return PartialView(accs);
         }
 
